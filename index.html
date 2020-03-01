@@ -53,13 +53,14 @@
         });
       };
 
-      handleSubmit = e => {
+      //see another to bind in jsx
+      handleSubmit(e) {
         e.preventDefault(); //prevents default page refresh
         console.log('form submitted', this.state.name);
         this.setState({
           name: this.state.name
         });
-      };
+      }
       render() {
         return (
           <div className="app-content">
@@ -72,7 +73,7 @@
             <button onMouseOver={this.handleMouseOver}> Hover Me</button>
             <p onCopy={this.handleCopy}> What we think, we become</p>
 
-            <form action="" onSubmit={this.handleSubmit}>
+            <form action="" onSubmit={this.handleSubmit.bind(this)}>
               <input type="text" onChange={this.handleChange} />
               <button>Submit</button>
             </form>
@@ -85,3 +86,9 @@
     ReactDOM.render(<App />, document.getElementById('app'));
   </script>
 </html>
+
+<!-- Worth Noting
+https://www.freecodecamp.org/news/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56/
+
+
+-->
