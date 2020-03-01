@@ -1,0 +1,87 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+
+  <script type="text/babel">
+    class App extends React.Component {
+      state = {
+        name: 'Sagat',
+        age: 25
+      };
+
+      state1 = {
+        name: 'Blanka',
+        age: 33
+      };
+
+      // '=>' functions is binding to this.
+      //takes default event parameter
+      handleClick = e => {
+        //changes
+        this.setState({ name: 'Solid Snake' });
+
+        console.log(this.state);
+      };
+
+      handleMouseOver = e => {
+        //target element and mouse position of x coordinate
+        console.log(e.target, e.pageX);
+      };
+
+      handleCopy = e => {
+        console.log('Try being original for once!');
+      };
+
+      handleChange = e => {
+        this.setState({
+          name: e.target.value
+        });
+      };
+
+      handleSubmit = e => {
+        e.preventDefault(); //prevents default page refresh
+        console.log('form submitted', this.state.name);
+        this.setState({
+          name: this.state.name
+        });
+      };
+      render() {
+        return (
+          <div className="app-content">
+            <h1> hey, Orc</h1>
+            <p>
+              My name is: {this.state.name} and I'm {this.state.age} years old.
+              My friend {this.state1.name} is here.
+            </p>
+            <button onClick={this.handleClick}> Click Me</button>
+            <button onMouseOver={this.handleMouseOver}> Hover Me</button>
+            <p onCopy={this.handleCopy}> What we think, we become</p>
+
+            <form action="" onSubmit={this.handleSubmit}>
+              <input type="text" onChange={this.handleChange} />
+              <button>Submit</button>
+            </form>
+          </div>
+        );
+      }
+    }
+
+    //First param class to renber, secon param where to render to in html
+    ReactDOM.render(<App />, document.getElementById('app'));
+  </script>
+</html>
