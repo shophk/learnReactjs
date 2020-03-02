@@ -1,0 +1,19 @@
+// Override default variables before the import
+$body-bg: #000;
+$primary: #3292a6;
+.navbar {
+  box-shadow: 2px 2px 5px $primary;
+  opacity: 0.9;
+  background: #fff;
+
+  .nav-item {
+    font-size: 1.4rem;
+    padding-right: 1.4rem;
+  }
+}
+p.thick {
+  font-weight: bold;
+}
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
