@@ -9,9 +9,9 @@ import Ninja from './components/Ninja';
 class App extends Component {
   state = {
     ninjas: [
-      { name: 'Ken', age: '35', belt: 'black' },
-      { name: 'Bison', age: '40', belt: 'n/a' },
-      { name: 'Ken', age: '35', belt: 'gold' }
+      { name: 'Ken', age: '35', belt: 'black', id: 1 },
+      { name: 'Bison', age: '40', belt: 'n/a', id: 2 },
+      { name: 'Ken', age: '35', belt: 'gold', id: 3 }
     ]
   };
   render() {
