@@ -5,6 +5,7 @@ import './Navbar';
 import './components/Ninja';
 import Navbar from './Navbar';
 import Ninja from './components/Ninja';
+import AddNinja from './components/AddNinja';
 
 class App extends Component {
   state = {
@@ -34,8 +35,7 @@ class App extends Component {
           <h1>Welcome to my App</h1>
           <p className="thick text-muted">How are you?</p>
           <Ninja ninjas={this.state.ninjas} />
-          {/* <br />
-          <Ninja name="Ryu" age="34" belt="white" /> */}
+          <AddNinja />
         </header>
       </div>
     );
