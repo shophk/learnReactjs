@@ -9,6 +9,8 @@ class AddNinja extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+
+    //Watch out for how the 'add' functions handles the data from this state. Make sure it means a copy of the state data first before doing operations on it.
     this.props.add(this.state);
   };
 
