@@ -9,7 +9,7 @@ class AddNinja extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.add(this.state);
   };
 
   handleChange = e => {
