@@ -11,7 +11,7 @@ class App extends Component {
     ninjas: [
       { name: 'Ken', age: '35', belt: 'black', id: 1 },
       { name: 'Bison', age: '40', belt: 'n/a', id: 2 },
-      { name: 'Ken', age: '35', belt: 'gold', id: 3 }
+      { name: 'Ken', age: '25', belt: 'gold', id: 3 }
     ]
   };
   render() {
