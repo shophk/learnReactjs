@@ -1,23 +1,47 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Post extends Component {
   state = {
-    id: null
+    post: null
   };
   componentDidMount() {
-    console.log(this.props);
+    this.CancelToken = axios.CancelToken;
+    this.source = this.CancelToken.source();
+    // console.log(this.props);
     let id = this.props.match.params.post_id;
-    console.log(id);
-    this.setState({
-      id: id
-    });
+    console.log('Post Mounted: ' + id);
+
+    axios
+      .get('https://jsonplaceholder.typicode.com/posts/' + id, {
+        cancelToken: this.source.token
+      })
+      .then(res => {
+        this.setState({
+          post: res.data
+        });
+      });
   }
+
+  componentWillUnmount() {
+    console.log('POST UNMOUNT');
+    this.source.cancel('Axios request canceled at Post.');
+  }
+
   render() {
+    const post = this.state.post ? (
+      <div className="post">
+        <h4 className="center">{this.state.post.title}</h4>
+        <p>{this.state.post.body}</p>
+      </div>
+    ) : (
+      <div className="center">Loading post...</div>
+    );
+
     return (
       <div className="container">
-        <div className="center">
-          <h4>Route Params {this.state.id}</h4>
-        </div>
+        {/* <h4>Route Params {this.state.id}</h4> */}
+        <div className="center">{post}</div>
       </div>
     );
   }
