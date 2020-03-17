@@ -6,6 +6,7 @@ import Navbar from './componentsPoke/Navbar';
 import Home from './componentsPoke/Home';
 import Contact from './componentsPoke/Contact';
 import About from './componentsPoke/About';
+import Post from './componentsPoke/Post';
 
 class PokeApp extends Component {
   render() {
@@ -17,6 +18,7 @@ class PokeApp extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/contact" component={Contact} />
           <Route path="/about" component={About} />
+          <Route path="/:post_id" component={Post} />
         </div>
       </BrowserRouter>
     );

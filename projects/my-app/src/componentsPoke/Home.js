@@ -7,12 +7,13 @@ class Home extends Component {
     posts: []
   };
   componentDidMount() {
+    //this time out tests that function is ran later after page had been setup
     setTimeout(() => {
       axios.get('https://jsonplaceholder.typicode.com/posts').then(res => {
         console.log(res);
         this.setState({ posts: res.data.slice(0, 9) });
       });
-    }, 5000);
+    }, 2000);
   }
 
   render() {
