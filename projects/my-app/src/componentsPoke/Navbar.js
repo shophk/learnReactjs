@@ -1,6 +1,13 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-const Navbar = () => {
+import { Link, NavLink, withRouter } from 'react-router-dom';
+
+const Navbar = props => {
+  console.log(props);
+
+  //THIS IS using higher order component, refer to the line at bottom with export
+  // setTimeout(() => {
+  //   props.history.push('/about');
+  // }, 2000);
   return (
     <nav className="nav-warpper red darken-3">
       <div className="container">
@@ -23,4 +30,5 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+//this is called "higher order component"
+export default withRouter(Navbar);

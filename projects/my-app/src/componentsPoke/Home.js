@@ -1,7 +1,13 @@
 import React from 'react';
 
 //This is a functional component
-const Home = () => {
+//The props is part of the
+const Home = props => {
+  //THIS IS programmatic redirect, without higher order function as this page is enclosed in Route tag in PokeApp.
+
+  // setTimeout(() => {
+  //   props.history.push('/about');
+  // }, 5000);
   return (
     <div className="container">
       <h4 className="center">Home</h4>

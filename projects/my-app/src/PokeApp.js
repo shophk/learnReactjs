@@ -15,8 +15,8 @@ class PokeApp extends Component {
           {/* <header className="PokeApp-header"></header> */}
           <Navbar />
           <Route exact path="/" component={Home} />
-          <Route path="/about" component={Contact} />
-          <Route path="/contact" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/about" component={About} />
         </div>
       </BrowserRouter>
     );
