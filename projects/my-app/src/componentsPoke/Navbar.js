@@ -11,7 +11,9 @@ const Navbar = props => {
   return (
     <nav className="nav-warpper red darken-3">
       <div className="container">
-        <a className="brand-logo">Poke App</a>
+        <Link to="/" className="brand-logo">
+          Poke App
+        </Link>
         <ul className="right">
           <li>
             <Link to="/">Home</Link>
