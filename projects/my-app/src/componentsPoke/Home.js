@@ -1,31 +1,37 @@
 import React, { Component } from 'react';
 // import Rainbow from '../hoc/Rainbow';
-import axios from 'axios';
+// import axios from 'axios';
 import { Link } from 'react-router-dom';
 import pokeball from '../pokeball.png';
-class Home extends Component {
-  state = {
-    posts: []
-  };
-  componentDidMount() {
-    this.CancelToken = axios.CancelToken;
-    this.source = this.CancelToken.source();
+import { connect } from 'react-redux';
 
-    axios
-      .get('https://jsonplaceholder.typicode.com/posts', {
-        cancelToken: this.source.token
-      })
-      .then(res => {
-        console.log(res);
-        this.setState({ posts: res.data.slice(0, 9) });
-        this.source.cancel();
-      });
-  }
-  componentWillUnmount() {
-    this.source.cancel('Axios request canceled at Home.');
-  }
+class Home extends Component {
+  // state = {
+  //   posts: []
+  // };
+  // componentDidMount() {
+  //   this.CancelToken = axios.CancelToken;
+  //   this.source = this.CancelToken.source();
+
+  //   axios
+  //     .get('https://jsonplaceholder.typicode.com/posts', {
+  //       cancelToken: this.source.token
+  //     })
+  //     .then(res => {
+  //       console.log(res);
+  //       this.setState({ posts: res.data.slice(0, 9) });
+  //       this.source.cancel();
+  //     });
+  // }
+  // componentWillUnmount() {
+  //   this.source.cancel('Axios request canceled at Home.');
+  // }
   render() {
-    const { posts } = this.state;
+    console.log(this.props);
+
+    const { posts } = this.props;
+
+    console.log(posts);
     const postList = posts.length ? (
       posts.map(post => {
         return (
@@ -53,4 +59,11 @@ class Home extends Component {
     );
   }
 }
-export default Home;
+
+const mapStateToProp = state => {
+  return {
+    posts: state.posts
+  };
+};
+
+export default connect(mapStateToProp)(Home);

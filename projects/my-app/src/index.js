@@ -13,12 +13,11 @@ import PokeApp from './PokeApp';
 import * as serviceWorker from './serviceWorker';
 
 // ReactDOM.render(<App />, document.getElementById('root'));
-import rootReducer from './reduces/rootReducer';
+import rootReducer from './reducers/rootReducer';
 const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    {' '}
     <PokeApp />
   </Provider>,
   document.getElementById('root')
